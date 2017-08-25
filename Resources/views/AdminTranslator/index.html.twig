@@ -1,0 +1,40 @@
+{% extends "AppAppBundle:Helper:index.html.twig" %}
+
+{% import 'AppAppBundle:Macro:filters.html.twig' as filterMacros %}
+
+{% block indexbeforeforminner %}
+    <div class="btn-group" role="group">
+        <button type="submit" name="filter" class="btn btn-sm btn-default">{{ ('filters.filter')|trans }}</button>
+        <button type="submit" name="reset" class="btn btn-sm {% if filters is defined and filters|length %}btn-warning{% else %}btn-default{% endif %}">{{ ('filters.reset')|trans }}</button>
+        <button type="button" class="form-bulk-all btn btn-sm btn-default">{{ ('filters.bulkall')|trans }}</button>
+    </div>
+{% endblock indexbeforeforminner %}
+
+{% block indexheaderstop %}
+    {{ filterMacros.simple('id', null, filters, pagination) }}
+
+    {{ filterMacros.simple('strId', null, filters, pagination) }}
+
+    {{ filterMacros.simple('transname', 'name', filters, pagination) }}
+{% endblock indexheaderstop %}
+
+{% block indexheadersmiddle %}    
+{% endblock indexheadersmiddle %}
+
+{% block indexheadersbottom %}
+{% endblock indexheadersbottom %}
+
+{% block indexrowstop %}
+    <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.id }}{% if classShortName is defined %}</a>{% endif %}</td>
+    <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.strId }}{% if classShortName is defined %}</a>{% endif %}</td>    
+    <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.obj.name|default('.........') }}{% if classShortName is defined %}</a>{% endif %}</td>
+    {% endblock indexrowstop %}
+
+{% block indexrowsmiddle %}
+{% endblock indexrowsmiddle %}
+
+{% block indexrowsbottom %}
+{% endblock indexrowsbottom %}
+
+{% block indexbulk %}
+{% endblock indexbulk %}

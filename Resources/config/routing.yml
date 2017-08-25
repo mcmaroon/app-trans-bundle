@@ -1,0 +1,30 @@
+translator:
+    path:     /
+    defaults: { _controller: "AppTransBundle:AdminTranslator:index" }
+
+translator_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppTransBundle:AdminTranslator:show" }
+
+translator_new:
+    path:     /new
+    defaults: { _controller: "AppTransBundle:AdminTranslator:new" }
+
+translator_create:
+    path:     /create
+    defaults: { _controller: "AppTransBundle:AdminTranslator:create" }
+    methods:  POST
+
+translator_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppTransBundle:AdminTranslator:edit" }
+
+translator_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppTransBundle:AdminTranslator:update" }
+    methods:  [POST, PUT]
+
+translator_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppTransBundle:AdminTranslator:delete" }
+
