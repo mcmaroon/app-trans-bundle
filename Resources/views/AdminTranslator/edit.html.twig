@@ -1,5 +1,12 @@
 {% extends "AppAppBundle:Helper:edit.html.twig" %}
 
+{% block edithead %}
+    {{ parent() }}
+    {% if entity is not null and entity.id %}
+        <code style="font-size: 1rem;">{{ entity.strId }}</code>
+    {% endif %}
+{% endblock edithead %}
+
 {% block edittop %}
     {{ form_row(form.translations) }}
 {% endblock edittop %}
