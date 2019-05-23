@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "mcmaroon/app-bundle": "dev-master"
+        "mcmaroon/app-bundle": "dev-sf4"
     },
     "autoload": {
         "psr-4": { "App\\TransBundle\\": "" }
