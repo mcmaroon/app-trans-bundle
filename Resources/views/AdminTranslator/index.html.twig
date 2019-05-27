@@ -1,6 +1,6 @@
-{% extends "AppAppBundle:Helper:index.html.twig" %}
+{% extends "@AppAppBundle/Helper/index.html.twig" %}
 
-{% import 'AppAppBundle:Macro:filters.html.twig' as filterMacros %}
+{% import '@AppAppBundle/Macro/filters.html.twig' as filterMacros %}
 
 {% block indexheaderstop %}
     {{ filterMacros.simple('id', null, filters, pagination) }}
