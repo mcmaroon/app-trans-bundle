@@ -1,13 +1,20 @@
 <?php
+
 namespace App\TransBundle\Translation;
 
 use Symfony\Bundle\FrameworkBundle\Translation\Translator as BaseTranslator;
-use Symfony\Component\Translation\MessageSelector;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 use App\TransBundle\Entity\Translator as EntityTranslator;
 
 class Translator extends BaseTranslator
 {
+
+    private $doctrine;
+
+    public function setDoctrine(RegistryInterface $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
 
     public function trans($id, array $parameters = array(), $domain = null, $locale = null)
     {
@@ -15,7 +22,7 @@ class Translator extends BaseTranslator
             $domain = 'messages';
         }
 
-        $em = $this->container->get('doctrine')->getManager();
+        $em = $this->doctrine->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
         $entityTranslator = $em->getRepository(EntityTranslator::class)->findOneByStrId($id);
 
@@ -26,10 +33,10 @@ class Translator extends BaseTranslator
             $em->flush();
         }
 
-        $str = (string) $entityTranslator;
+        $str = (string)$entityTranslator;
 
         if (!strlen($str)) {
-            $str = strtr($this->getCatalogue($locale)->get((string) $id, $domain), $parameters);
+            $str = strtr($this->getCatalogue($locale)->get((string)$id, $domain), $parameters);
         }
 
         return $str;

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\TransBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
