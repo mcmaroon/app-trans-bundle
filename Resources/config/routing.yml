@@ -10,9 +10,9 @@ translator_show:
     path:     /{id}/show
     defaults: { _controller: "AppTransBundle:AdminTranslator:show" }
 
-translator_new:
-    path:     /new
-    defaults: { _controller: "AppTransBundle:AdminTranslator:new" }
+#translator_new:
+#    path:     /new
+#    defaults: { _controller: "AppTransBundle:AdminTranslator:new" }
 
 translator_create:
     path:     /create
