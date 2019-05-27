@@ -1,5 +1,7 @@
-# KnpLabs/DoctrineBehaviors
-knp_doctrine_behaviors:
-  translatable: true
-  sluggable: true
-  soft_deletable: true
+# A2LiX Translation Form
+a2lix_translation_form:
+  locale_provider: default
+  default_locale: '%locale%'
+  locales: '%locales%'
+  required_locales: '%locale%'
+  templating: "@A2lixTranslationForm/bootstrap_4_layout.html.twig"
