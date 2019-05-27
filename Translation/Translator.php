@@ -22,6 +22,8 @@ class Translator extends BaseTranslator
             $domain = 'messages';
         }
 
+        $id = (string) $id;
+
         $em = $this->doctrine->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
         $entityTranslator = $em->getRepository(EntityTranslator::class)->findOneByStrId($id);
