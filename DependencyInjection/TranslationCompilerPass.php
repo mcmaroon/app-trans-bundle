@@ -14,9 +14,7 @@ class TranslationCompilerPass implements CompilerPassInterface
     {
         $reference = new Reference('doctrine');
         $container->getDefinition('translator.default')->setClass(Translator::class);
-        $container->getDefinition('translator.default')->setMethodCalls([
-            ['setDoctrine', [$reference]]
-        ]);
+        $container->getDefinition('translator.default')->addMethodCall('setDoctrine', [$reference]);
     }
 
 }
