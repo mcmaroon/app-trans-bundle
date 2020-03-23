@@ -18,7 +18,7 @@
 
 {% block indexrowstop %}
     <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.id }}{% if classShortName is defined %}</a>{% endif %}</td>
-    <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.strId }}{% if classShortName is defined %}</a>{% endif %}</td>    
+    <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.strId }}{% if classShortName is defined %}</a>{% endif %}</td>
     <td>{% if classShortName is defined %}<a href="{{ path(classShortName~'_edit', {'id': entity.id} ) }}">{% endif %}{{ entity.obj.name|default('.........') }}{% if classShortName is defined %}</a>{% endif %}</td>
     {% endblock indexrowstop %}
 
